@@ -1,68 +1,34 @@
 package com.icosahedron.attract
 
-import kotlin.random.Random
+data class Span(val origin: Tetray, val endpoint: Tetray) {
+    init { require(origin.tick == endpoint.tick) }
 
-class Span(private val pole: Pole, originInertia: Tetray, endpointInertia: Tetray) {
-    private val adjacentPoleMatrix = Array(4) { x -> Array(4) { y -> pole.moved(x,y) } }
-    private val radiusMatrix = Array(4) { x -> LongArray(4) { y -> adjacentPoleMatrix[x][y].radius } }
-    private val inertiaMatrix = Array(4) { x -> DoubleArray(4) { y -> (originInertia[x] * endpointInertia[y]).toDouble() } }
-    private var distributionSum = (0 until 4).flatMap { x -> (0 until 4).map { y -> weight(x,y) } }.sum()
-    private var tick = 0L
+    private val deltas = LongArray(4) { index -> endpoint[index] - origin[index] }
+    private var steps = deltas.sumOf { if (it < 0) it*3L else it }
 
-    override fun toString() = "Span {" +
-            "\n\tPole: $pole" +
-            "\n\n\tAdjacent:\n\t${adjacentPoleMatrix.joinToString("\n\t"){ it.contentToString()}}" +
-            "\n\n\tRadii:\n\t${radiusMatrix.joinToString("\n\t"){ it.contentToString()}}" +
-            "\n\n\tInertia:\n\t${inertiaMatrix.joinToString("\n\t"){it.contentToString()}}" +
-            "\n\n\tDistribution sum: $distributionSum" +
-            "\n}"
+    var radius = steps / 4L
+        private set
 
-    fun evolve(duration: Int, random: Random = Random(0)) = LongArray(duration) { move(random) }
+    fun move(originIndex: Int, endpointIndex: Int) {
+        origin.move(originIndex)
+        endpoint.move(endpointIndex)
+        if (originIndex == endpointIndex) return
 
-    fun move(random: Random): Long {
-        tick++
-        val discriminant = random.nextDouble(distributionSum)
-        var weightSum = 0.0
+        val endpointDelta = deltas[endpointIndex]
+        val endpointStepChange = if (endpointDelta < 0) -3L else 1L
+        deltas[endpointIndex] = endpointDelta + 1
 
-        for (x in 0 until 4) {
-            for (y in 0 until 4) {
-                weightSum += weight(x,y)
-                println("[$x][$y] weight sum is $weightSum")
+        val originDelta = deltas[originIndex]
+        val originStepChange = if (originDelta > 0) -1L else 3L
+        deltas[originIndex] = deltas[originIndex] - 1
 
-                if (weightSum >= discriminant) {
-                    println("Moving $x $y because weight sum=$weightSum and discriminant=$discriminant")
-                    return adjust(x, y)
-                }
-            }
-        }
-
-        return pole.radius
+        steps += originStepChange + endpointStepChange
+        radius = steps / 4L
     }
 
-    private fun weight(x: Int, y: Int) = weight(inertiaMatrix[x][y], radiusMatrix[x][y])
-    private fun weight(inertia: Double, radius: Long) = if (radius == 0L) 0.0 else inertia/radius.toDouble()
-
-    private fun adjust(x: Int, y: Int): Long {
-        if (x == y) return pole.radius
-
-        for (j in 0 until 4) {
-            for (k in 0 until 4) {
-                val adjacentPole = adjacentPoleMatrix[j][k]
-                adjacentPole.move(x,y)
-
-                val radius = adjacentPole.radius
-                val priorRadius = radiusMatrix[j][k]
-                if (radius != priorRadius) {
-                    val inertia = inertiaMatrix[j][k]
-                    val priorWeight = weight(inertia, priorRadius)
-                    val weight = weight(inertia, radius)
-                    distributionSum += (weight - priorWeight)
-                    radiusMatrix[j][k] = radius
-                }
-            }
-        }
-
-        pole.move(x, y, tick)
-        return pole.radius
+    fun moved(originIndex: Int, endpointIndex: Int): Span {
+        val span = Span(Tetray(origin), Tetray(endpoint))
+        span.move(originIndex, endpointIndex)
+        return span
     }
 }

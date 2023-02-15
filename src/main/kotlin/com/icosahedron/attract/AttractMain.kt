@@ -7,7 +7,7 @@ fun main() {
     val pole = Pole(endpoint)
     val originInertia = Tetray(1, 1, 1, 1)
     val endpointInertia = Tetray(1, 1, 1, 1)
-    val span = Span(pole, originInertia, endpointInertia)
+    val span = Spanner(pole, originInertia, endpointInertia)
 
     var move = 0
     println("[$move] $span")

@@ -1,11 +1,18 @@
 package com.icosahedron.attract
 
-class Tetray(w: Long, x: Long, y: Long, z: Long) {
+data class Tetray(private var w: Long, private var x: Long, private var y: Long, private var z: Long) {
+    constructor(w: Int, x: Int, y: Int, z: Int): this(w.toLong(), x.toLong(), y.toLong(), z.toLong())
+    constructor(tetray: Tetray): this(tetray.w, tetray.x, tetray.y, tetray.z)
+
     private val array = longArrayOf(w, x, y, z)
 
-    constructor(w: Int, x: Int, y: Int, z: Int): this(w.toLong(), x.toLong(), y.toLong(), z.toLong())
-    fun copy() = Tetray(array[0], array[1], array[2], array[3])
+    var tick = w + x + y + z
+        private set
 
-    operator fun get(at: Int) = array[at]
-    operator fun set(at: Int, value: Long) { array[at] = value }
+    operator fun get(index: Int) = array[index]
+
+    fun move(index: Int) {
+        array[index] = array[index] + 1
+        tick += 1
+    }
 }

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="Initial project setup">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Tetray.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Event.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Spanner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Tetray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Tetray.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.21/e31859676e9dfc3dda0d830fdf759eaf237bd86d/kotlin-stdlib-1.7.21-sources.jar!/kotlin/Number.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.21/e31859676e9dfc3dda0d830fdf759eaf237bd86d/kotlin-stdlib-1.7.21-sources.jar!/kotlin/Primitives.kt" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -53,12 +57,16 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.icosahedron.attract" />
     </key>
   </component>
   <component name="RunManager">
@@ -83,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676127226024</updated>
-      <workItem from="1676127227211" duration="30265000" />
+      <workItem from="1676127227211" duration="39028000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -92,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676127672895</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial project setup">
+      <created>1676238250458</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676238250458</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,5 +116,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial project setup" />
     <option name="LAST_COMMIT_MESSAGE" value="Initial project setup" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,32 +1,47 @@
 package com.icosahedron.attract
 
-class Pole(private val pole: Tetray) {
-    var radius = computeRadius(0)
+data class Pole(val origin: Event, val endpoint: Event) {
+    private val centerSpan = Span(origin.location, endpoint.location)
+    private val spanMatrix = Array(4) { x -> Array(4) { y -> centerSpan.moved(x, y) } }
 
-    override fun toString() = "[${pole[0]} ${pole[1]} ${pole[2]} ${pole[3]}]"
+    private var weightSum = 0.0
+    private val weightMatrix = Array(4) { x ->
+        Array(4) { y ->
+            val radius = spanMatrix[x][y].radius
 
-    fun move(x: Int, y: Int, tick: Long) {
-        pole[x]--
-        pole[y]++
-        radius = computeRadius(tick)
-    }
-
-    fun moved(x: Int, y: Int): Pole {
-        val pole = Pole(pole.copy())
-        pole.move(x,y,0)
-        return pole
-    }
-
-    private fun computeRadius(tick: Long): Long {
-        var sum = -4L * tick
-        var min = Long.MAX_VALUE
-
-        for (n in 0 until 4) {
-            val delta = pole[n]
-            sum += delta
-            if (delta < min) min = delta
+            if (radius == 0L) {
+                0.0
+            } else {
+                val weight = origin.inertia[x] * endpoint.inertia[y] / radius.toDouble()
+                weightSum += weight
+                weight
+            }
         }
+    }
 
-        return sum/4 - min
+    fun move(originIndex: Int, endpointIndex: Int) {
+        centerSpan.move(originIndex, endpointIndex)
+
+        for (x in 0 until 4) {
+            for (y in 0 until 4) {
+                val span = spanMatrix[x][y]
+                val priorRadius = span.radius
+                span.move(x, y)
+
+                if (x != y) {
+                    val radius = span.radius
+                    val priorWeight = weightMatrix[x][y]
+                    weightSum -= priorWeight
+
+                    if (radius == 0L) {
+                        weightMatrix[x][y] = 0.0
+                    } else if (priorRadius == 0L) {
+                        val weight = origin.inertia[x] * endpoint.inertia[y] / radius.toDouble()
+                    } else {
+                        priorWeight * priorRadius / radius
+                    }
+                }
+            }
+        }
     }
 }
