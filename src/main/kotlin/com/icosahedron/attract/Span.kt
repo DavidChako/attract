@@ -1,34 +1,33 @@
 package com.icosahedron.attract
 
-data class Span(val origin: Tetray, val endpoint: Tetray) {
-    init { require(origin.tick == endpoint.tick) }
+data class Span(val from: Location, val to: Location) {
+    init { require(from.conformsTo(to)) }
+    var radius = computeRadius(); private set
 
-    private val deltas = LongArray(4) { index -> endpoint[index] - origin[index] }
-    private var steps = deltas.sumOf { if (it < 0) it*3L else it }
+    override fun toString() = "$radius from $from to $to"
 
-    var radius = steps / 4L
-        private set
-
-    fun move(originIndex: Int, endpointIndex: Int) {
-        origin.move(originIndex)
-        endpoint.move(endpointIndex)
-        if (originIndex == endpointIndex) return
-
-        val endpointDelta = deltas[endpointIndex]
-        val endpointStepChange = if (endpointDelta < 0) -3L else 1L
-        deltas[endpointIndex] = endpointDelta + 1
-
-        val originDelta = deltas[originIndex]
-        val originStepChange = if (originDelta > 0) -1L else 3L
-        deltas[originIndex] = deltas[originIndex] - 1
-
-        steps += originStepChange + endpointStepChange
-        radius = steps / 4L
+    fun move(fromIndex: Int, toIndex: Int) {
+        from.move(fromIndex)
+        to.move(toIndex)
+        radius = computeRadius()
     }
 
-    fun moved(originIndex: Int, endpointIndex: Int): Span {
-        val span = Span(Tetray(origin), Tetray(endpoint))
-        span.move(originIndex, endpointIndex)
+    fun moved(fromIndex: Int, toIndex: Int): Span {
+        val span = Span(from.copyOf(), to.copyOf())
+        span.move(fromIndex, toIndex)
         return span
+    }
+
+    private fun computeRadius(): Long {
+        var deltaSum = 0L
+        var minDelta = Long.MAX_VALUE
+
+        repeat(from.dim) { index ->
+            val delta = to[index] - from[index]
+            deltaSum += delta
+            if (delta < minDelta) minDelta = delta
+        }
+
+        return (deltaSum - 4L*minDelta) / 4L
     }
 }

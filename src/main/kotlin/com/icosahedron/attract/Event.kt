@@ -1,3 +1,9 @@
 package com.icosahedron.attract
 
-data class Event(val location: Tetray, val inertia: Tetray)
+class Event(val inertia: Inertia, val location: Location) {
+    init { require(location.dim == inertia.dim) }
+    val dim get() = location.dim
+
+    override fun toString() = "$inertia @ $location"
+    fun conformsTo(event: Event) = location.conformsTo(event.location)
+}

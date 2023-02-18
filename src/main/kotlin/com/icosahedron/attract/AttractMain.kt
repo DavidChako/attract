@@ -3,19 +3,37 @@ package com.icosahedron.attract
 import kotlin.random.Random
 
 fun main() {
-    val endpoint = Tetray(12, 0, 0, 0)
-    val pole = Pole(endpoint)
-    val originInertia = Tetray(1, 1, 1, 1)
-    val endpointInertia = Tetray(1, 1, 1, 1)
-    val span = Spanner(pole, originInertia, endpointInertia)
+    val originInertia = Inertia(1,1,1,1)
+    val originLocation = Location(1,1,1,1)
+    val origin = Event(originInertia, originLocation)
 
-    var move = 0
-    println("[$move] $span")
+    val endpointInertia = Inertia(1,1,1,1)
+    val endpointLocation = Location(2,1,1,0)
+    val endpoint = Event(endpointInertia, endpointLocation)
 
-    val random = Random(0)
-    move++
-    println("Move $move:")
-    span.move(random)
+    val pole = Pole(origin, endpoint)
+
     println()
-    println("[$move] $span")
+    println("Before moving:")
+    println(pole)
+
+//    val random = Random(0)
+//    val duration = 10
+//    var move = 0
+//
+//    println()
+//    println("X".repeat(pole.radius.toInt()))
+//
+//    repeat(duration) {
+//        move++
+////        println()
+////        println("Move $move:")
+//        pole.move(random)
+//        println("X".repeat(pole.radius.toInt()))
+////        println(pole)
+//    }
+//
+//    println()
+//    println("After moving $duration times:")
+//    println(pole)
 }
