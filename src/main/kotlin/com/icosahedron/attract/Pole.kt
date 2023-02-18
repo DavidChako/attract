@@ -6,12 +6,10 @@ import kotlin.random.Random
 data class Pole(val origin: Event, val endpoint: Event) {
     init { require(endpoint.conformsTo(origin)) }
 
-    private val dim get() = origin.dim
-    private val span = Span(origin.location, endpoint.location)
-    private val nextSpanMatrix = Array(dim) { x -> Array(dim) { y -> span.moved(x, y) } }
-    private val weights = Array(dim) { LongArray(dim) }
+    private val span = endpoint.location - origin.location
+    private val nextSpanMatrix = Array(4) { x -> Array(4) { y -> span.moved(x, y) } }
+    private val weights = Array(4) { LongArray(4) }
     private var weightSum = computeWeights()
-    val radius get() = span.radius
 
     override fun toString(): String {
         return "Pole {" +
@@ -30,12 +28,11 @@ data class Pole(val origin: Event, val endpoint: Event) {
         val cutoff = random.nextLong(weightSum)
 
         var sum = 0L
-        repeat(dim) { x ->
-            repeat(dim) { y ->
+        repeat(4) { x ->
+            repeat(4) { y ->
                 sum += weights[x][y]
 
                 if (sum >= cutoff) {
-//                    println("Move is $x $y for cutoff $cutoff")
                     move(x, y)
                     return span.radius
                 }
@@ -47,7 +44,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
 
     private fun move(from: Int, to: Int) {
         span.move(from, to)
-        repeat(dim) { x -> repeat(dim) { y -> nextSpanMatrix[x][y].move(from, to) } }
+        repeat(4) { x -> repeat(4) { y -> nextSpanMatrix[x][y].move(from, to) } }
         weightSum = computeWeights()
     }
 
@@ -55,8 +52,8 @@ data class Pole(val origin: Event, val endpoint: Event) {
         var weightSum = 0L
         val radius = span.radius
 
-        repeat(dim) { x ->
-            repeat(dim) { y ->
+        repeat(4) { x ->
+            repeat(4) { y ->
                 val radiusFactor = when (val nextRadius = nextSpanMatrix[x][y].radius) {
                     0L -> 0L
                     radius -> (radius - 1) * (radius + 1)
@@ -83,6 +80,6 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     private fun radialMatrix() : Array<LongArray> {
-        return nextSpanMatrix.map { x -> x.map(Span::radius).toLongArray() }.toTypedArray()
+        return nextSpanMatrix.map { x -> x.map(Ray::radius).toLongArray() }.toTypedArray()
     }
 }

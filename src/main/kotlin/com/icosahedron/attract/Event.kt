@@ -1,9 +1,7 @@
 package com.icosahedron.attract
 
-class Event(val inertia: Inertia, val location: Location) {
-    init { require(location.dim == inertia.dim) }
-    val dim get() = location.dim
-
+class Event(val inertia: Ray, val location: Ray) {
+    init { require(inertia.dim == location.dim) }
     override fun toString() = "$inertia @ $location"
-    fun conformsTo(event: Event) = location.conformsTo(event.location)
+    fun conformsTo(event: Event) = location.sum == event.location.sum
 }
