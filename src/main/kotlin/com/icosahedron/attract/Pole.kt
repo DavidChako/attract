@@ -7,7 +7,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
     init { require(endpoint.conformsTo(origin)) }
 
     private val span = endpoint.location - origin.location
-    private val nextSpanMatrix = Array(4) { x -> Array(4) { y -> span.moved(x, y) } }
+    private val flipMatrix = Array(4) { x -> Array(4) { y -> span.flipped(x, y) } }
     private val weights = Array(4) { LongArray(4) }
     private var weightSum = computeWeights()
 
@@ -15,6 +15,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
         return "Pole {" +
                 "\n     origin: $origin" +
                 "\n   endpoint: $endpoint" +
+                "\n       span: $span" +
                 "\n     radius: ${span.radius}" +
                 "\n    radials: ${formatMatrix(radialMatrix(), "    radials:")}" +
                 "\n    weights: ${formatMatrix(weights, "    weights:")}" +
@@ -43,8 +44,8 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     private fun move(from: Int, to: Int) {
-        span.move(from, to)
-        repeat(4) { x -> repeat(4) { y -> nextSpanMatrix[x][y].move(from, to) } }
+        span.flip(from, to)
+        repeat(4) { x -> repeat(4) { y -> flipMatrix[x][y].flip(from, to) } }
         weightSum = computeWeights()
     }
 
@@ -54,16 +55,17 @@ data class Pole(val origin: Event, val endpoint: Event) {
 
         repeat(4) { x ->
             repeat(4) { y ->
-                val radiusFactor = when (val nextRadius = nextSpanMatrix[x][y].radius) {
-                    0L -> 0L
-                    radius -> (radius - 1) * (radius + 1)
-                    radius + 1 -> (radius - 1) * radius // centerRadius = radius - s
-                    radius - 1 -> radius * (radius + 1)
-                    else -> throw IllegalArgumentException("Next radius $nextRadius has no relation to radius $radius")
-                }
-
+//                val radiusFactor = when (val nextRadius = nextSpanMatrix[x][y].radius) {
+//                    0L -> 0L
+//                    radius -> (radius - 1) * (radius + 1)
+//                    radius + 1 -> (radius - 1) * radius // centerRadius = radius - s
+//                    radius - 1 -> radius * (radius + 1)
+//                    else -> throw IllegalArgumentException("Next radius $nextRadius has no relation to radius $radius")
+//                }
+//
                 val inertiaFactor = origin.inertia[x] * endpoint.inertia[y]
-                val weight = radiusFactor * inertiaFactor
+//                val weight = radiusFactor * inertiaFactor
+                val weight = inertiaFactor
                 weights[x][y] = weight
                 weightSum += weight
             }
@@ -80,6 +82,6 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     private fun radialMatrix() : Array<LongArray> {
-        return nextSpanMatrix.map { x -> x.map(Ray::radius).toLongArray() }.toTypedArray()
+        return flipMatrix.map { x -> x.map(Tetray::radius).toLongArray() }.toTypedArray()
     }
 }

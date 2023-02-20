@@ -3,12 +3,12 @@ package com.icosahedron.attract
 import kotlin.random.Random
 
 fun main() {
-    val originInertia = Ray(1,1,1,1)
-    val originLocation = Ray(1,1,1,1)
+    val originInertia = Tetray(2,2,2,2)
+    val originLocation = Tetray(1,1,1,1)
     val origin = Event(originInertia, originLocation)
 
-    val endpointInertia = Ray(1,1,1,1)
-    val endpointLocation = Ray(2,1,1,0)
+    val endpointInertia = Tetray(2,2,2,2)
+    val endpointLocation = Tetray(2,1,1,0)
     val endpoint = Event(endpointInertia, endpointLocation)
 
     val pole = Pole(origin, endpoint)
