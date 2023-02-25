@@ -6,9 +6,10 @@ import kotlin.random.Random
 data class Pole(val origin: Event, val endpoint: Event) {
     init { require(endpoint.conformsTo(origin)) }
 
-    private val span = endpoint.location - origin.location
-    private val flipMatrix = Array(4) { x -> Array(4) { y -> span.flipped(x, y) } }
-    private val weights = Array(4) { LongArray(4) }
+    private val span = Span(origin.location, endpoint.location)
+    private val dimension get() = span.dimension
+    private val flipMatrix = Array(dimension) { x -> Array(dimension) { y -> span.flipped(x, y) } }
+    private val weights = Array(dimension) { LongArray(dimension) }
     private var weightSum = computeWeights()
 
     override fun toString(): String {
@@ -29,10 +30,9 @@ data class Pole(val origin: Event, val endpoint: Event) {
         val cutoff = random.nextLong(weightSum)
 
         var sum = 0L
-        repeat(4) { x ->
-            repeat(4) { y ->
+        repeat(dimension) { x ->
+            repeat(dimension) { y ->
                 sum += weights[x][y]
-
                 if (sum >= cutoff) {
                     move(x, y)
                     return span.radius
@@ -45,7 +45,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
 
     private fun move(from: Int, to: Int) {
         span.flip(from, to)
-        repeat(4) { x -> repeat(4) { y -> flipMatrix[x][y].flip(from, to) } }
+        repeat(dimension) { x -> repeat(dimension) { y -> flipMatrix[x][y].flip(from, to) } }
         weightSum = computeWeights()
     }
 
@@ -53,8 +53,8 @@ data class Pole(val origin: Event, val endpoint: Event) {
         var weightSum = 0L
         val radius = span.radius
 
-        repeat(4) { x ->
-            repeat(4) { y ->
+        repeat(dimension) { x ->
+            repeat(dimension) { y ->
 //                val radiusFactor = when (val nextRadius = nextSpanMatrix[x][y].radius) {
 //                    0L -> 0L
 //                    radius -> (radius - 1) * (radius + 1)
@@ -82,6 +82,6 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     private fun radialMatrix() : Array<LongArray> {
-        return flipMatrix.map { x -> x.map(Tetray::radius).toLongArray() }.toTypedArray()
+        return flipMatrix.map { x -> x.map(Span::radius).toLongArray() }.toTypedArray()
     }
 }
