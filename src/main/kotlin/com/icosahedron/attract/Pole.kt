@@ -9,7 +9,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
     private val span = Span(origin.location, endpoint.location)
     private val dimension get() = span.dimension
     private val flipMatrix = Array(dimension) { x -> Array(dimension) { y -> span.moved(x, y) } }
-    private val weights = Array(dimension) { LongArray(dimension) }
+    private val weights = Array(dimension) { DoubleArray(dimension) }
     private var weightSum = computeWeights()
     val radius get() = span.radius
 
@@ -19,18 +19,16 @@ data class Pole(val origin: Event, val endpoint: Event) {
                 "\n   endpoint: $endpoint" +
                 "\n       span: $span" +
                 "\n     radius: $radius" +
-                "\n    radials: ${formatMatrix(radialMatrix(), "    radials:")}" +
-                "\n    weights: ${formatMatrix(weights, "    weights:")}" +
+                "\n    radials: ${formatRadialMatrix(radialMatrix(), "    radials:")}" +
+                "\n    weights: ${formatWeightMatrix(weights, "    weights:")}" +
                 "\n  weightSum: $weightSum" +
                 "\n}"
     }
 
     fun move(random: Random): Long {
-        if (weightSum == 0L) return 0
+        val cutoff = random.nextDouble(weightSum)
 
-        val cutoff = random.nextLong(weightSum)
-
-        var sum = 0L
+        var sum = 0.0
         repeat(dimension) { x ->
             repeat(dimension) { y ->
                 sum += weights[x][y]
@@ -50,24 +48,15 @@ data class Pole(val origin: Event, val endpoint: Event) {
         weightSum = computeWeights()
     }
 
-    private fun computeWeights(): Long {
-        var weightSum = 0L
+    private fun computeWeights(): Double {
+        var weightSum = 0.0
         val radius = span.radius
 
         repeat(dimension) { x ->
             repeat(dimension) { y ->
                 val nextRadius = flipMatrix[x][y].radius
-
-                val radiusFactor = if (nextRadius < radius) {
-                    (radius + 2) * (radius + 3)
-                } else if (nextRadius > radius) {
-                    (radius + 1) * (radius + 2)
-                } else {
-                    (radius + 1) * (radius + 3)
-                }
-
                 val inertiaFactor = origin.inertia[x] * endpoint.inertia[y]
-                val weight = radiusFactor * inertiaFactor
+                val weight = inertiaFactor * (radius + 1.0) / (nextRadius + 1.0)
                 weights[x][y] = weight
                 weightSum += weight
             }
@@ -76,11 +65,16 @@ data class Pole(val origin: Event, val endpoint: Event) {
         return weightSum
     }
 
-    private fun formatMatrix(matrix: Array<LongArray>, leader: String): String {
+    private fun formatRadialMatrix(matrix: Array<LongArray>, leader: String): String {
         val max = matrix.maxOf(LongArray::max)
         val separator = "\n".padEnd(leader.length + 2, ' ')
         val width = if (max == 0L) 1 else log10(max.toDouble()).toInt() + 1
         return matrix.joinToString(separator) { x -> x.joinToString(" ") { it.toString().padStart(width, ' ') } }
+    }
+
+    private fun formatWeightMatrix(matrix: Array<DoubleArray>, leader: String): String {
+        val separator = "\n".padEnd(leader.length + 2, ' ')
+        return matrix.joinToString(separator) { x -> x.joinToString(" ") { String.format("%7.4f", 100.0*it) } }
     }
 
     private fun radialMatrix() : Array<LongArray> {

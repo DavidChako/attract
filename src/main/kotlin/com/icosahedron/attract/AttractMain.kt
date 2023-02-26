@@ -20,8 +20,8 @@ fun main() {
     println(pole)
 
     val random = Random(0)
-    val duration = 1000000
-    val reportPeriod = 1000
+    val duration = 10000
+    val reportPeriod = 10
     var move = 0
 
     println()
@@ -29,12 +29,8 @@ fun main() {
 
     repeat(duration) {
         move++
-//        println()
-//        println("Move $move:")
         pole.move(random)
-
         if (move % reportPeriod == 0) println("X".repeat(pole.radius.toInt()))
-//        println(pole)
     }
 
     println()
