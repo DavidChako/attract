@@ -8,16 +8,17 @@ data class Pole(val origin: Event, val endpoint: Event) {
 
     private val span = Span(origin.location, endpoint.location)
     private val dimension get() = span.dimension
-    private val flipMatrix = Array(dimension) { x -> Array(dimension) { y -> span.flipped(x, y) } }
+    private val flipMatrix = Array(dimension) { x -> Array(dimension) { y -> span.moved(x, y) } }
     private val weights = Array(dimension) { LongArray(dimension) }
     private var weightSum = computeWeights()
+    val radius get() = span.radius
 
     override fun toString(): String {
         return "Pole {" +
                 "\n     origin: $origin" +
                 "\n   endpoint: $endpoint" +
                 "\n       span: $span" +
-                "\n     radius: ${span.radius}" +
+                "\n     radius: $radius" +
                 "\n    radials: ${formatMatrix(radialMatrix(), "    radials:")}" +
                 "\n    weights: ${formatMatrix(weights, "    weights:")}" +
                 "\n  weightSum: $weightSum" +
@@ -44,8 +45,8 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     private fun move(from: Int, to: Int) {
-        span.flip(from, to)
-        repeat(dimension) { x -> repeat(dimension) { y -> flipMatrix[x][y].flip(from, to) } }
+        span.move(from, to)
+        repeat(dimension) { x -> repeat(dimension) { y -> flipMatrix[x][y].move(from, to) } }
         weightSum = computeWeights()
     }
 
@@ -55,17 +56,18 @@ data class Pole(val origin: Event, val endpoint: Event) {
 
         repeat(dimension) { x ->
             repeat(dimension) { y ->
-//                val radiusFactor = when (val nextRadius = nextSpanMatrix[x][y].radius) {
-//                    0L -> 0L
-//                    radius -> (radius - 1) * (radius + 1)
-//                    radius + 1 -> (radius - 1) * radius // centerRadius = radius - s
-//                    radius - 1 -> radius * (radius + 1)
-//                    else -> throw IllegalArgumentException("Next radius $nextRadius has no relation to radius $radius")
-//                }
-//
+                val nextRadius = flipMatrix[x][y].radius
+
+                val radiusFactor = if (nextRadius < radius) {
+                    (radius + 2) * (radius + 3)
+                } else if (nextRadius > radius) {
+                    (radius + 1) * (radius + 2)
+                } else {
+                    (radius + 1) * (radius + 3)
+                }
+
                 val inertiaFactor = origin.inertia[x] * endpoint.inertia[y]
-//                val weight = radiusFactor * inertiaFactor
-                val weight = inertiaFactor
+                val weight = radiusFactor * inertiaFactor
                 weights[x][y] = weight
                 weightSum += weight
             }

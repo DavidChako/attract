@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="ugh, needs rework">
+    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/DetailMain.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/ExpoloreMain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Event.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Event.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Ray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Ray.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Tetray.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,24 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
     </key>
@@ -75,9 +79,23 @@
       <recent name="com.icosahedron.attract" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.AttractMainKt">
     <configuration name="AttractMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.AttractMainKt" />
+      <module name="attract.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetailMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.DetailMainKt" />
+      <module name="attract.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpoloreMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.ExpoloreMainKt" />
       <module name="attract.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,6 +104,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.AttractMainKt" />
+        <item itemvalue="Kotlin.ExpoloreMainKt" />
+        <item itemvalue="Kotlin.DetailMainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -99,7 +119,7 @@
       <updated>1676127226024</updated>
       <workItem from="1676127227211" duration="40540000" />
       <workItem from="1676480905343" duration="43103000" />
-      <workItem from="1677347801145" duration="4692000" />
+      <workItem from="1677347801145" duration="12532000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -143,11 +163,29 @@
       <option name="project" value="LOCAL" />
       <updated>1676904115591</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled">
+      <created>1677352557448</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677352557448</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial project setup" />
@@ -155,7 +193,8 @@
     <MESSAGE value="checkpoint" />
     <MESSAGE value="simplified and streamlined" />
     <MESSAGE value="ugh, needs rework" />
-    <option name="LAST_COMMIT_MESSAGE" value="ugh, needs rework" />
+    <MESSAGE value="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled" />
+    <option name="LAST_COMMIT_MESSAGE" value="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
