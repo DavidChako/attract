@@ -26,7 +26,7 @@ data class Pole(val origin: Event, val endpoint: Event) {
     }
 
     fun move(random: Random): Long {
-        check(weightSum == 0L)
+        check(weightSum > 0L)
         val cutoff = random.nextLong(weightSum)
 
         var sum = 0L
