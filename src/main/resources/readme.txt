@@ -1,19 +1,24 @@
 My working hypothesis is that momentum is rationally quantized,
 by which I mean that any particular momentum can be reliably represented
-as a discrete number of incrementally discrete aka whole number values.
+as a discrete number of incrementally discrete values aka whole numbers.
 
 Momentum also has a geometric aspect,
 requiring volume in which to reside,
 plus at least four directions of travel outward
 in order to project volumetrically.
 
-Four is the minimum number of incrementally discrete variables required
+Four is the minimum number of whole number variables required
 to describe quantized volumetric extent and motion of a center of momentum.
 
-Four incremental rays outward from the center of momentum,
+Four regularly incremented rays outward from the center of momentum,
 such that no three of the rays are in the same plane,
 the simplest such configuration being the four directions outward
 from a symmetric tetrahedron’s center through its vertexes.
+Although, in principle, any shape of tetrahedron will suffice to cover outwardly.
+More or less asymmetric tetrahedral envelopes may be useful in accounting compression and angular effects,
+perhaps for example in the context of electromagnetic fields,
+however for the sake of simplicity in exposition, I restrict consideration to the symmetric case for now.
+Which ought to be sufficient for the case of attraction in absence of other forces.
 
 With respect to attraction per se,
 in the absence of any other disturbance,

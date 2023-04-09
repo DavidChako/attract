@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/DetailMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/ExpoloreMain.kt" afterDir="false" />
+    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="quantized momentum">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/AttractMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Pole.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/Span.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,24 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
@@ -119,7 +115,10 @@
       <updated>1676127226024</updated>
       <workItem from="1676127227211" duration="40540000" />
       <workItem from="1676480905343" duration="43103000" />
-      <workItem from="1677347801145" duration="12532000" />
+      <workItem from="1677347801145" duration="15527000" />
+      <workItem from="1679057831576" duration="117000" />
+      <workItem from="1679255923201" duration="395000" />
+      <workItem from="1679256324386" duration="2129000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -170,7 +169,42 @@
       <option name="project" value="LOCAL" />
       <updated>1677352557448</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="long weights seems odd">
+      <created>1677449127725</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677449127725</updated>
+    </task>
+    <task id="LOCAL-00009" summary="use double weights ... why not working?">
+      <created>1677451070683</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677451070683</updated>
+    </task>
+    <task id="LOCAL-00010" summary="back to long weights ... strange">
+      <created>1677451180265</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677451180265</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix check of weightSum">
+      <created>1677451419556</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677451419556</updated>
+    </task>
+    <task id="LOCAL-00012" summary="quantized momentum">
+      <created>1679256313976</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679256313976</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +228,12 @@
     <MESSAGE value="simplified and streamlined" />
     <MESSAGE value="ugh, needs rework" />
     <MESSAGE value="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally have radials correct and all is simple, still need to decide wtf to do with 0 radials in terms of how the weights are scaled" />
+    <MESSAGE value="long weights seems odd" />
+    <MESSAGE value="use double weights ... why not working?" />
+    <MESSAGE value="back to long weights ... strange" />
+    <MESSAGE value="fix check of weightSum" />
+    <MESSAGE value="quantized momentum" />
+    <option name="LAST_COMMIT_MESSAGE" value="quantized momentum" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
