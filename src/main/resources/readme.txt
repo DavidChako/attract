@@ -5,7 +5,7 @@ as a discrete number of incrementally discrete values aka whole numbers.
 Momentum also has a geometric aspect,
 requiring volume in which to reside,
 plus at least four directions of travel outward
-in order to project volumetrically.
+in order to project outward, motion being movement away from current location.
 
 Four is the minimum number of whole number variables required
 to describe quantized volumetric extent and motion of a center of momentum.
