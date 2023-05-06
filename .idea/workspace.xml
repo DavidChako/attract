@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="quantized momentum">
+    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="new algo">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Inertia.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Pole.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Span.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/accMain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take/Span.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take/Span.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,16 +27,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Interface" />
+        <option value="Kotlin Enum" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Sealed Interface" />
+        <option value="Kotlin Sealed Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.21/e31859676e9dfc3dda0d830fdf759eaf237bd86d/kotlin-stdlib-1.7.21-sources.jar!/kotlin/Number.kt" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.21/e31859676e9dfc3dda0d830fdf759eaf237bd86d/kotlin-stdlib-1.7.21-sources.jar!/kotlin/Primitives.kt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -48,7 +53,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract/take&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -56,26 +61,37 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.icosahedron.attract.accumulate" />
       <recent name="com.icosahedron.attract" />
       <recent name="com.icosahedron.attract.vector" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.icosahedron.attract.accumulate" />
+      <recent name="com.icosahedron.attract.take" />
       <recent name="com.icosahedron.attract" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.AttractMainKt">
+  <component name="RunManager" selected="Kotlin.AccMainKt">
+    <configuration name="AccMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.accumulate.AccMainKt" />
+      <module name="attract.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AttractMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.AttractMainKt" />
       <module name="attract.main" />
@@ -97,8 +113,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.take.MainKt" />
+      <module name="attract.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.AccMainKt" />
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.AttractMainKt" />
         <item itemvalue="Kotlin.ExpoloreMainKt" />
         <item itemvalue="Kotlin.DetailMainKt" />
@@ -119,6 +144,11 @@
       <workItem from="1679057831576" duration="117000" />
       <workItem from="1679255923201" duration="395000" />
       <workItem from="1679256324386" duration="2129000" />
+      <workItem from="1681070104879" duration="2337000" />
+      <workItem from="1681128028878" duration="604000" />
+      <workItem from="1682103697753" duration="18325000" />
+      <workItem from="1683310733964" duration="17000" />
+      <workItem from="1683388416135" duration="18047000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -204,7 +234,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679256313976</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="new algo">
+      <created>1681070309360</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681070309360</updated>
+    </task>
+    <task id="LOCAL-00014" summary="new algo">
+      <created>1681070324506</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681070324506</updated>
+    </task>
+    <task id="LOCAL-00015" summary="new algo">
+      <created>1681070426441</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681070426441</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +284,19 @@
     <MESSAGE value="back to long weights ... strange" />
     <MESSAGE value="fix check of weightSum" />
     <MESSAGE value="quantized momentum" />
-    <option name="LAST_COMMIT_MESSAGE" value="quantized momentum" />
+    <MESSAGE value="new algo" />
+    <option name="LAST_COMMIT_MESSAGE" value="new algo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Inertia.kt</url>
+          <line>16</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

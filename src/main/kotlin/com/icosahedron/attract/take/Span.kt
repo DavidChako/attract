@@ -5,7 +5,8 @@ import kotlin.random.Random
 class Span(
     private val radial: LongArray,
     private val from: DoubleArray,
-    private val to: DoubleArray
+    private val to: DoubleArray,
+    private val verbose: Boolean = false
 ) {
     init {
         require (radial.find { it < 0 } == null)
@@ -28,7 +29,7 @@ class Span(
     }
 
     private fun makeMove(fromStep: Int, toStep: Int): Boolean {
-//        println("Attempting to move: fromStep=$fromStep toStep=$toStep")
+        if (verbose) println("Attempting to move: fromStep=$fromStep toStep=$toStep")
 
         val radialDelta = LongArray(4) { n ->
             when (n) {
@@ -38,6 +39,7 @@ class Span(
             }
         }
 
+        if (verbose) println ("Radial delta is ${radialDelta.contentToString()}")
         radial.indices.forEach { n ->  radial[n] = radial[n] + radialDelta[n] }
 
         val nextRadius = computeRadius()
@@ -46,9 +48,10 @@ class Span(
             return false
         }
 
-        //val delta = 1.0 / (radius * nextRadius)
+        val delta = 1.0 / (radius * nextRadius)
+        if (verbose) println ("Inertial delta is 1.0/($radius * $nextRadius) = $delta")
         //val delta = 1.0 / radius
-        val delta = nextRadius.toDouble() / radius
+        //val delta = nextRadius.toDouble() / radius
         if (from[fromStep] < delta || to[toStep] < delta) {
             radial.indices.forEach { n ->  radial[n] = radial[n] - radialDelta[n] }
             return false
@@ -60,7 +63,7 @@ class Span(
         to[toStep] -= delta
         from[toStep] += delta
 
-//        println("Moved: fromStep=$fromStep toStep=$toStep")
+        if (verbose) println("Moved: fromStep=$fromStep toStep=$toStep")
         return true
     }
 
