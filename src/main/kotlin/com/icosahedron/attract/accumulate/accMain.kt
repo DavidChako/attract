@@ -12,7 +12,7 @@ fun main() {
 
     val randomSeed = 0
     val random = Random(randomSeed)
-    val stepCount = 100
+    val stepCount = 1
 
     println("Before move 0: $pole")
 

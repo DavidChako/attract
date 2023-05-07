@@ -10,8 +10,8 @@ class Span(w: Long, x: Long, y: Long, z: Long) {
     }
 
     private var radius = radial.filter { it > 0L }.sum()
-    //private var scale = 1.0 / (radius * radius)
-    private var scale = 1.0 / radius
+    private var scale = 1.0 / (radius * radius)
+    //private var scale = 1.0 / radius
 
     fun canMove(from: Int, to: Int): Boolean = (radius > 1L) || (radial[from] != 1L) || (radial[to] != -1L)
 
