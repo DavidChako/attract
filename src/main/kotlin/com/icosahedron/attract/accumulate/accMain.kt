@@ -12,13 +12,14 @@ fun main() {
 
     val randomSeed = 0
     val random = Random(randomSeed)
-    val stepCount = 1
+    val stepCount = 100
 
     println("Before move 0: $pole")
-    var from = a.pickDirection(random)
-    var to = b.pickDirection(random)
 
     repeat (stepCount) { move ->
+        var from = a.pickDirection(random)
+        var to = b.pickDirection(random)
+
         while (!pole.canMove(from, to)) {
             from = a.pickDirection(random)
             to = b.pickDirection(random)
