@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="getting strange">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Inertia.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Inertia.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Span.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Span.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/accMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/accMain.kt" afterDir="false" />
     </list>
@@ -144,7 +144,7 @@
       <workItem from="1681128028878" duration="604000" />
       <workItem from="1682103697753" duration="18325000" />
       <workItem from="1683310733964" duration="17000" />
-      <workItem from="1683388416135" duration="39076000" />
+      <workItem from="1683388416135" duration="39744000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -279,7 +279,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683498440389</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="getting strange">
+      <created>1683498827561</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683498827561</updated>
+    </task>
+    <task id="LOCAL-00021" summary="getting strange">
+      <created>1683498854423</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683498854423</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +337,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/accumulate/Span.kt</url>
-          <line>29</line>
+          <line>28</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
