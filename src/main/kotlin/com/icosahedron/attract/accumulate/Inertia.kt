@@ -8,7 +8,7 @@ class Inertia(w: Long, x: Long, y: Long, z: Long) {
     private val flux = doubleArrayOf(0.0, 0.0, 0.0, 0.0)
 
     fun shift(delta: DoubleArray, outward: Boolean) {
-        val wavelength = 1.0 / frequency
+        val wavelength = 1.0// / frequency
 
         for (direction in weight.indices) {
             val fluxDelta = if (outward) delta[direction] else -delta[direction]

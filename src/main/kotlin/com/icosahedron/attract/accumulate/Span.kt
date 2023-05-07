@@ -9,9 +9,8 @@ class Span(w: Long, x: Long, y: Long, z: Long) {
         radial.indices.forEach { direction -> radial[direction] -= tick }
     }
 
-    private var radius = radial.filter { it > 0L }.sum()
-    private var scale = 1.0 / (radius * radius)
-    //private var scale = 1.0 / radius
+    private var radius = computeRadius()
+    private var scale = computeScale()
 
     fun canMove(from: Int, to: Int): Boolean = (radius > 1L) || (radial[from] != 1L) || (radial[to] != -1L)
 
@@ -23,8 +22,8 @@ class Span(w: Long, x: Long, y: Long, z: Long) {
         tick += 1
         radial[from] -= 1L
         radial[to] += 1L
-        radius = radial.filter { it > 0L }.sum()
-        scale = 1.0 / (radius * radius)
+        radius = computeRadius()
+        scale = computeScale()
 
         delta.indices.forEach { direction -> delta[direction] += scale * radial[direction] }
         return delta
@@ -33,4 +32,11 @@ class Span(w: Long, x: Long, y: Long, z: Long) {
     override fun toString(): String {
         return "Span(radial=${radial.contentToString()}, tick=$tick, radius=$radius)"
     }
+
+    private fun computeRadius() = radial.filter { it > 0L }.sum()
+
+    private fun computeScale() =
+        //1.0 / (radius * radius)
+        //1.0 / radius
+        1.0
 }
