@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="getting strange">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/drift/AddressSpace.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/drift/DriftMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/drift/Tetrahedron.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/drift/Vertex.kt" afterDir="false" />
+    <list default="true" id="9cfd056e-82f9-4a8b-8952-0ecd5cbdab56" name="Changes" comment="Drift">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/pressure/PressureMain.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/hydrox/Compound.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/hydrox/Fuel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/hydrox/HydroxMain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,20 +22,35 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Interface" />
-        <option value="Kotlin Enum" />
-        <option value="Kotlin Sealed Interface" />
         <option value="Kotlin Sealed Class" />
+        <option value="Kotlin Sealed Interface" />
+        <option value="Kotlin Enum" />
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,24 +63,29 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract/drift&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/icosahedron/IdeaProjects/attract/src/main/kotlin/com/icosahedron/attract/pressure&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/pressure" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/drift" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract/take" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/icosahedron/attract" />
@@ -78,12 +99,13 @@
       <recent name="com.icosahedron.attract.vector" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.icosahedron.hydrox" />
       <recent name="com.icosahedron.attract.accumulate" />
       <recent name="com.icosahedron.attract.take" />
       <recent name="com.icosahedron.attract" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.DriftMainKt">
+  <component name="RunManager" selected="Kotlin.HydroxMainKt">
     <configuration name="AccMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.accumulate.AccMainKt" />
       <module name="attract.main" />
@@ -105,8 +127,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExpoloreMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.icosahedron.attract.ExpoloreMainKt" />
+    <configuration name="HydroxMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.icosahedron.hydrox.HydroxMainKt" />
       <module name="attract.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.HydroxMainKt" />
         <item itemvalue="Kotlin.DriftMainKt" />
         <item itemvalue="Kotlin.AccMainKt" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.AttractMainKt" />
-        <item itemvalue="Kotlin.ExpoloreMainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -150,6 +172,10 @@
       <workItem from="1683388416135" duration="40336000" />
       <workItem from="1685903877965" duration="3719000" />
       <workItem from="1686580146001" duration="8647000" />
+      <workItem from="1687707166159" duration="3054000" />
+      <workItem from="1687711676365" duration="408000" />
+      <workItem from="1688833472468" duration="2950000" />
+      <workItem from="1691331365483" duration="8620000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup">
       <created>1676127672895</created>
@@ -312,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683499505342</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Drift">
+      <created>1687707213948</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687707213948</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +377,8 @@
     <MESSAGE value="new algo" />
     <MESSAGE value="getting better" />
     <MESSAGE value="getting strange" />
-    <option name="LAST_COMMIT_MESSAGE" value="getting strange" />
+    <MESSAGE value="Drift" />
+    <option name="LAST_COMMIT_MESSAGE" value="Drift" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

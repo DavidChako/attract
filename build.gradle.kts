@@ -13,6 +13,9 @@ repositories {
 }
 
 dependencies {
+//    implementation("org.jetbrains.skija:skija-shared:0.93.6")
+//    implementation("org.jetbrains.skija:skija-macos-arm64:0.93.6")
+
     testImplementation(kotlin("test"))
 }
 
